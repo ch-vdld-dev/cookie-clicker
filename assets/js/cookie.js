@@ -2,15 +2,11 @@ let btn = document.getElementById('CookieClick');
     let target = document.getElementById('score');
     let multi =  document.getElementById('multiplicator');
      let x =0;
-     let y=0;
 
 
     function incLocal() {
          x+=1;
      target.innerHTML = x;
-     y+=1;
-     
-
     }
 
     btn.addEventListener('click', incLocal);
