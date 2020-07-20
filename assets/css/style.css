@@ -1,9 +1,0 @@
-body {
-    margin : 0;
-    padding: 0;
-    display: flex;
-}
-.sectionRules {
-    border: solid black 1px;
-    height: 100%;
-}
