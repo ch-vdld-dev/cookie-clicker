@@ -1,5 +1,6 @@
 
 // Functions
+document.querySelector('body').style.backgroundColor = "blue";
 
 // Function to display the current cookies number and the total of the cookies
 function displayScore() {
@@ -17,6 +18,23 @@ function IncreaseScore() {
         cookies += clickValue;
         totalcookies += clickValue;
     }
+    if (totalcookies>=100){
+        document.querySelector('body').style.backgroundColor = "#1698A7";
+    }
+     if (totalcookies>=200) {
+        document.querySelector('body').style.backgroundColor = "#074850";
+     }
+     if (totalcookies>=300) {
+        document.querySelector('body').style.backgroundColor = "#0C4C36";
+     }
+     if (totalcookies>=400) {
+        document.querySelector('body').style.backgroundColor = "#022B1D";
+     }
+     if (totalcookies>=500) {
+        document.querySelector('body').style.backgroundColor = "#270B62";
+     }
+     
+    
     displayScore();
     EnableButtons();
 
