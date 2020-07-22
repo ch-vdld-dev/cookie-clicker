@@ -25,10 +25,10 @@ function IncreaseScore() {
 // Function to increase the step of number of click per click
 function IncreaseByMultiplier() {
     cookies -= costmulti;
-    multiplier *= 2;
+    //multiplier ;
     console.log(multiplier)
     console.log(clickValue)
-    clickValue = multiplier * clickValue;
+    clickValue = 2 * clickValue;
     costmulti *= multiplier;
     console.log(`costmulti: ${costmulti}`);
     EnableButtons();
