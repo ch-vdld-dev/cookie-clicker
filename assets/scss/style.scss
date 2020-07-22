@@ -1,0 +1,40 @@
+body{
+    background: #fff;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10%;
+
+    #section1{
+        border: 5px solid rosybrown;
+
+        strong{
+            color:#fcc052;
+            padding-right:5px;
+        }
+    }
+
+    #section2{
+        background-color: rosybrown;
+
+        button{
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+
+            .btn{
+                text-align:center;  
+                background:red !important;
+            }
+        }
+
+        #section3{
+
+            blockquote{
+                font-size:12px;
+                text-align:justify;
+                border:1px solid rosybrown;
+            }
+            
+        }
+    }
+}
