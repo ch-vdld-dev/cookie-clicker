@@ -11,8 +11,8 @@ function displayScore() {
 // Function to increase the number of cookie, and if bonusok true then clickValue is 200%
 function IncreaseScore() {
     if (bonusok == true){
-        cookies = cookies + (clickValue * 2);
-        totalcookies = totalcookies + (clickValue *2);
+        cookies += (clickValue * 2);
+        totalcookies += (clickValue *2);
     } else {
         cookies += clickValue;
         totalcookies += clickValue;
@@ -27,7 +27,7 @@ function IncreaseByMultiplier() {
     cookies -= costmulti;
     clickValue = 2 * clickValue;
     costmulti *= 2;
-    multiclick.innerHTML = `${costmulti} €`;
+    multiclick.innerHTML = `Multi: ${costmulti} €`;
     EnableButtons();
     displayScore();
 
@@ -38,23 +38,22 @@ function IncreaseByAuto() {
     cookies -= costauto;
     autoclickInterval = window.setInterval(IncreaseScore, 1000);
     costauto *= 2;
-    autoclick.innerHTML = `${costauto} €`;
+    autoclick.innerHTML = `Auto: ${costauto} €`;
     EnableButtons();
     displayScore();
 }
 
 // Function to decrease the time and clear the setInterval when is done
 function BonusWaitTime() {
-    if (bonusTime == 0) {
+    if (bonusTime == 1) {
         bonusok = false;
-        bonusclick.innerHTML = `${costbonus} €`;
+        bonusclick.innerHTML = `Bonus: ${costbonus} €`;
         clearInterval(interval);
     }else {
         bonusok = true;
         bonusTime--;
         bonusclick.innerHTML = `${bonusTime} sec`
         console.log(bonusTime + " sec");
-        
     }
 }
 
@@ -73,15 +72,15 @@ function IncreaseByBonus() {
 function EnableButtons() {
     EnableButton(costmulti, multiclick);
     EnableButton(costauto, autoclick);
-    EnableButton(costbonus, bonusclick);
+    EnableButton(costbonus, bonusclick, bonusok);
 }
 
 // Function to check if there is enough cookies to enable the button
-function EnableButton(cost, functionname) {
-    if (cookies >= cost) {
+function EnableButton(cost, functionname, bonusok = false) {
+    if ((cookies >= cost) && (bonusok == false)) {
         functionname.disabled = false;
     } else {
-        functionname.disabled = true
+        functionname.disabled = true;
     }
 
 }
