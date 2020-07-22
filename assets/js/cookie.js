@@ -26,8 +26,8 @@ function IncreaseScore() {
 function IncreaseByMultiplier() {
     cookies -= costmulti;
     clickValue = 2 * clickValue;
-    costmulti *= clickValue;
-    console.log(`costmulti: ${costmulti}`);
+    costmulti *= 2;
+    multiclick.innerHTML = `${costmulti} €`;
     EnableButtons();
     displayScore();
 
@@ -38,7 +38,7 @@ function IncreaseByAuto() {
     cookies -= costauto;
     autoclickInterval = window.setInterval(IncreaseScore, 1000);
     costauto *= 2;
-    console.log(`costauto: ${costauto}`)
+    autoclick.innerHTML = `${costauto} €`;
     EnableButtons();
     displayScore();
 }
@@ -47,10 +47,12 @@ function IncreaseByAuto() {
 function BonusWaitTime() {
     if (bonusTime == 0) {
         bonusok = false;
+        bonusclick.innerHTML = `${costbonus} €`;
         clearInterval(interval);
     }else {
         bonusok = true;
         bonusTime--;
+        bonusclick.innerHTML = `${bonusTime} sec`
         console.log(bonusTime + " sec");
         
     }
@@ -59,10 +61,9 @@ function BonusWaitTime() {
 // Function to set the bonus time to 30s and call 
 function IncreaseByBonus() {
     cookies -= costbonus;
-    bonusTime = 15;
+    bonusTime = 30;
     interval = setInterval(BonusWaitTime, 1000);
     costbonus *= 2;
-    console.log(`costbonus: ${costbonus}`)
     EnableButtons();
     displayScore();
 }
@@ -104,7 +105,7 @@ let clickValue = 1;
 let multiplier = 2
 let costmulti = 10;
 let costauto = 20;
-let costbonus =30;
+let costbonus = 30;
 let bonusok = false;
 
 
