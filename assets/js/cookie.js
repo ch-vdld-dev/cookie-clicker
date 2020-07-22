@@ -9,7 +9,7 @@ function displayScore() {
 
 
 // Function to increase the number of cookie
-function increaseScore() {
+function IncreaseScore() {
     cookies += clickValue;
     totalcookies += clickValue;
     displayScore();
@@ -18,15 +18,12 @@ function increaseScore() {
 }
 
 // Function to increase the step of number of click per click
-function increaseMultiplier() {
+function IncreaseByMultiplier() {
     cookies -= costmulti;
     multiplier += 1;
     clickValue = multiplier;
-    /* if (bonusOn) {
-        clickValue *= 2;
-    } */
     costmulti *= multiplier;
-    console.log(costmulti);
+    console.log(`costmulti: ${costmulti}`);
     EnableButtons();
     displayScore();
 
@@ -35,22 +32,50 @@ function increaseMultiplier() {
 // Function to increase automatically the number of cookies
 function IncreaseByAuto() {
     cookies -= costauto;
-    autoclickInterval = window.setInterval(increaseScore, 1000);
+    autoclickInterval = window.setInterval(IncreaseScore, 1000);
     costauto *= 2;
-    console.log(costauto)
+    console.log(`costauto: ${costauto}`)
     EnableButtons();
     displayScore();
 }
 
+// Function to decrease the time and clear the setInterval when is done
+function BonusWaitTime() {
+    if (bonusTime == 0) {
+        bonusok = false;
+        clickValue = tempclickvalue
+        clearInterval(interval);
+    }else {
+        bonusok = true;
+        bonusTime--;
+        tempclickvalue = clickValue
+        clickValue *= 2;
+        console.log(bonusTime + " sec");
+        
+    }
+}
+
+// Function to set the bonus time to 30s and call 
+function IncreaseByBonus() {
+    cookies -= costbonus;
+    bonusTime = 15;
+    interval = setInterval(BonusWaitTime, 1000);
+    costbonus *= 2;
+    console.log(`costbonus: ${costbonus}`)
+    EnableButtons();
+    displayScore();
+}
+
+
 // Function to call EnableButton with right parameters
 function EnableButtons() {
-    EnableButton(cookies, costmulti, multiclick);
-    EnableButton(cookies, costauto, autoclick);
-    EnableButton(cookies, costbonus, bonusclick);
+    EnableButton(costmulti, multiclick);
+    EnableButton(costauto, autoclick);
+    EnableButton(costbonus, bonusclick);
 }
 
 // Function to check if there is enough cookies to enable the button
-function EnableButton(cookies, cost, functionname) {
+function EnableButton(cost, functionname) {
     if (cookies >= cost) {
         functionname.disabled = false;
     } else {
@@ -66,6 +91,10 @@ let cookieclick = document.getElementById("cookieclick");
 let multiclick = document.getElementById("multiclick");
 let autoclick = document.getElementById("autoclick");
 let bonusclick = document.getElementById("bonusclick");
+// Disable button by default
+multiclick.disabled = true;
+autoclick.disabled = true;
+bonusclick.disabled = true;
 
 // Init of variable
 let cookies = 0;
@@ -75,15 +104,12 @@ let multiplier = 1
 let costmulti = 10;
 let costauto = 20;
 let costbonus =30;
+let bonusok = false;
 
 
-multiclick.disabled = true;
-autoclick.disabled = true;
-bonusclick.disabled = true;
-
-// Main probram
-cookieclick.addEventListener('click', increaseScore);
-multiclick.addEventListener('click', increaseMultiplier);
+// Main program
+cookieclick.addEventListener('click', IncreaseScore);
+multiclick.addEventListener('click', IncreaseByMultiplier);
 autoclick.addEventListener('click', IncreaseByAuto);
-
+bonusclick.addEventListener('click', IncreaseByBonus);
 
