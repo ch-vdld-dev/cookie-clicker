@@ -82,34 +82,6 @@ function EnableButton(cost, functionname, bonusok = false) {
     } else {
         functionname.disabled = true;
     }
-}
-
-// Function to set the bonus time to 30s and call 
-function IncreaseByBonus() {
-    cookies -= costbonus;
-    bonusTime = 15;
-    interval = setInterval(BonusWaitTime, 1000);
-    costbonus *= 2;
-    console.log(`costbonus: ${costbonus}`)
-    EnableButtons();
-    displayScore();
-}
-
-
-// Function to call EnableButton with right parameters
-function EnableButtons() {
-    EnableButton(costmulti, multiclick);
-    EnableButton(costauto, autoclick);
-    EnableButton(costbonus, bonusclick);
-}
-
-// Function to check if there is enough cookies to enable the button
-function EnableButton(cost, functionname) {
-    if (cookies >= cost) {
-        functionname.disabled = false;
-    } else {
-        functionname.disabled = true
-    }
 
 }
 
@@ -129,10 +101,10 @@ bonusclick.disabled = true;
 let cookies = 0;
 let totalcookies = 0
 let clickValue = 1;
-let multiplier = 1
+let multiplier = 2
 let costmulti = 10;
 let costauto = 20;
-let costbonus =30;
+let costbonus = 30;
 let bonusok = false;
 
 
@@ -141,3 +113,4 @@ cookieclick.addEventListener('click', IncreaseScore);
 multiclick.addEventListener('click', IncreaseByMultiplier);
 autoclick.addEventListener('click', IncreaseByAuto);
 bonusclick.addEventListener('click', IncreaseByBonus);
+
