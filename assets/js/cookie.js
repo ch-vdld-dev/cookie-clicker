@@ -1,32 +1,89 @@
-let btn = document.getElementById('CookieClick');
-    let target = document.getElementById('score');
-    let multi =  document.getElementById('multiplicator');
-     let x =0;
+
+// Functions
+
+// Function to display the current cookies number and the total of the cookies
+function displayScore() {
+    document.getElementById("score").innerHTML = cookies;
+    document.getElementById("totalcookies").innerHTML = totalcookies;
+  }
 
 
-    function incLocal() {
-         x+=1;
-     target.innerHTML = x;
+// Function to increase the number of cookie
+function increaseScore() {
+    cookies += clickValue;
+    totalcookies += clickValue;
+    displayScore();
+    EnableButtons();
+
+}
+
+// Function to increase the step of number of click per click
+function increaseMultiplier() {
+    cookies -= costmulti;
+    multiplier += 1;
+    clickValue = multiplier;
+    /* if (bonusOn) {
+        clickValue *= 2;
+    } */
+    costmulti *= multiplier;
+    console.log(costmulti);
+    EnableButtons();
+    displayScore();
+
+}
+
+// Function to increase automatically the number of cookies
+function IncreaseByAuto() {
+    cookies -= costauto;
+    autoclickInterval = window.setInterval(increaseScore, 1000);
+    costauto *= 2;
+    console.log(costauto)
+    EnableButtons();
+    displayScore();
+}
+
+// Function to call EnableButton with right parameters
+function EnableButtons() {
+    EnableButton(cookies, costmulti, multiclick);
+    EnableButton(cookies, costauto, autoclick);
+    EnableButton(cookies, costbonus, bonusclick);
+}
+
+// Function to check if there is enough cookies to enable the button
+function EnableButton(cookies, cost, functionname) {
+    if (cookies >= cost) {
+        functionname.disabled = false;
+    } else {
+        functionname.disabled = true
     }
 
-    btn.addEventListener('click', incLocal);
+}
 
 
-    function lessCredit(){
-    x = target.innerHTML - parseInt(multi.value);
-    // target.innerHTML= (parseInt(target.innerHTML) - parseInt(multi.value));
-     
-    target.innerHTML=x+y;
-    multi.value = parseInt(multi.value)*2;
-       if (x<0) {
-           target.innerHTML = 0;
-       }
-       else if (x< parseInt(multi.value)){
-        multi.disabled = true;
-           
-       }
-       else if (x>=parseInt(multi.value)){
-           multi.disabled= false;
-       }
-    };
-    multi.addEventListener('click', lessCredit);
+
+// Define button variables
+let cookieclick = document.getElementById("cookieclick");
+let multiclick = document.getElementById("multiclick");
+let autoclick = document.getElementById("autoclick");
+let bonusclick = document.getElementById("bonusclick");
+
+// Init of variable
+let cookies = 0;
+let totalcookies = 0
+let clickValue = 1;
+let multiplier = 1
+let costmulti = 10;
+let costauto = 20;
+let costbonus =30;
+
+
+multiclick.disabled = true;
+autoclick.disabled = true;
+bonusclick.disabled = true;
+
+// Main probram
+cookieclick.addEventListener('click', increaseScore);
+multiclick.addEventListener('click', increaseMultiplier);
+autoclick.addEventListener('click', IncreaseByAuto);
+
+
