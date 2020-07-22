@@ -1,4 +1,4 @@
-let bonusValue = document.getElementById("bonusclick").value;
+let bonus = document.getElementById("bonusclick");
 bonusValue = "test";
 
 // Functions
@@ -61,6 +61,31 @@ function EnableButton(cookies, cost, functionname) {
     }
 
 }
+// test jeremy
+let timer =  document.getElementById('timer');
+function chrono(){
+    timer.innerHTML = (parseInt(timer.innerHTML) +1);
+}
+
+function bonustest(){
+    var x = setInterval(chrono, 1000);
+    bonus.disabled = true;
+    setTimeout(disabledBonus, 5000);
+    if (parseInt(timer.innerHTML) == 5){
+    clearInterval(x);
+    }
+
+
+}
+function disabledBonus(){
+    bonus.disabled = false;
+
+}
+bonus.addEventListener('click', bonustest);
+
+
+
+// test jeremy
 
 
 
