@@ -1,3 +1,5 @@
+let bonusValue = document.getElementById("bonusclick").value;
+bonusValue = "test";
 
 // Functions
 
@@ -5,6 +7,7 @@
 function displayScore() {
     document.getElementById("score").innerHTML = cookies;
     document.getElementById("totalcookies").innerHTML = totalcookies;
+   
   }
 
 
