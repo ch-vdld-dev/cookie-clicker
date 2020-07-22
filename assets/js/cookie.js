@@ -8,10 +8,15 @@ function displayScore() {
   }
 
 
-// Function to increase the number of cookie
+// Function to increase the number of cookie, and if bonusok true then clickValue is 200%
 function IncreaseScore() {
-    cookies += clickValue;
-    totalcookies += clickValue;
+    if (bonusok == true){
+        cookies = cookies + (clickValue * 2);
+        totalcookies = totalcookies + (clickValue *2);
+    } else {
+        cookies += clickValue;
+        totalcookies += clickValue;
+    }
     displayScore();
     EnableButtons();
 
@@ -43,13 +48,10 @@ function IncreaseByAuto() {
 function BonusWaitTime() {
     if (bonusTime == 0) {
         bonusok = false;
-        clickValue = tempclickvalue
         clearInterval(interval);
     }else {
         bonusok = true;
         bonusTime--;
-        tempclickvalue = clickValue
-        clickValue *= 2;
         console.log(bonusTime + " sec");
         
     }
