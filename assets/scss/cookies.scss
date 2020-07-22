@@ -14,8 +14,8 @@
         button{
             color:#fff;
 
-            :focus{
-                box-shadow:0;
+            :active{
+                outline-style:none;
             }
         }
     }
