@@ -3,8 +3,8 @@
 
 // Function to display the current cookies number and the total of the cookies
 function displayScore() {
-    document.getElementById("score").innerHTML = cookies;
-    document.getElementById("totalcookies").innerHTML = totalcookies;
+    document.getElementById("score").innerHTML = `IceCream: ${cookies}`;
+    document.getElementById("totalcookies").innerHTML = `${totalcookies} €uros`;
   }
 
 
