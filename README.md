@@ -14,7 +14,7 @@ working in a small group, develop competences in javascript and manage git confl
 - [Jérémy Linard](https://github.com/LinardJeremy)
 - [Christophe Vanderlinden](https://github.com/ch-vdld-dev)
 
-## Objectifs:
+## Goals:
 At the end of this challenge, we improved our skills in  :
 
 - JavaScript, html and css
