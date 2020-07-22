@@ -1,0 +1,37 @@
+body {
+  background: #fff;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+}
+
+body #section1 {
+  border: 5px solid rosybrown;
+}
+
+body #section1 strong {
+  color: #fcc052;
+  padding-right: 5px;
+}
+
+body #section2 {
+  background-color: rosybrown;
+}
+
+body #section2 button {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+body #section2 button .btn {
+  text-align: center;
+  background: red !important;
+}
+
+body #section2 #section3 blockquote {
+  font-size: 12px;
+  text-align: justify;
+  border: 1px solid rosybrown;
+}
+/*# sourceMappingURL=style.css.map */
