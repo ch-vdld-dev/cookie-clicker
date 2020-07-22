@@ -1,40 +1,23 @@
-body{
-    background: #fff;
-    width:90%;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:10%;
+.container-fluid{
+    font-family: 'Indie Flower', cursive;
+    margin-top:5%;
+    width:75%;
+    margin-left:auto;margin-right:auto;
 
-    #section1{
-        border: 5px solid rosybrown;
-
-        strong{
-            color:#fcc052;
-            padding-right:5px;
-        }
+    h2 {
+        font-family: 'Bangers', cursive;
     }
 
-    #section2{
-        background-color: rosybrown;
+    .sectionClick {
+        text-align:center;
 
         button{
-            background-color: #ffffff;
-            border: 1px solid #ffffff;
+            color:#fff;
 
-            .btn{
-                text-align:center;  
-                background:red !important;
+            :focus{
+                box-shadow:0;
             }
-        }
-
-        #section3{
-
-            blockquote{
-                font-size:12px;
-                text-align:justify;
-                border:1px solid rosybrown;
-            }
-            
         }
     }
+
 }
